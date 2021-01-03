@@ -16,9 +16,11 @@ router.get('/', (req, res) => {
         ],
     })
     .then(dbPlantData => {
+        // serialize the data
         const randomPlantsArray = [];
         const data = dbPlantData.map(plant => plant.get({ plain: true }));
 
+        // randomize 5 plants to display
         for (let i = 0; i < 6; i++) {
             let randomNumber = Math.floor(data.length * Math.random());
 
@@ -26,7 +28,8 @@ router.get('/', (req, res) => {
             randomPlantsArray.push(randomPlants);
         }
         const plants = randomPlantsArray.flat(1)
-        res.render('homepage', {
+        // console.log(plants)
+        res.render('homePage', {
             plants,
             data,
             loggedIn: req.session.loggedIn
