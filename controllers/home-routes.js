@@ -26,7 +26,11 @@ router.get('/', (req, res) => {
             randomPlantsArray.push(randomPlants);
         }
         const plants = randomPlantsArray.flat(1)
-        res.render('homepage', { plants, data, loggedIn: req.session.loggedIn })
+        res.render('homepage', {
+            plants,
+            data,
+            loggedIn: req.session.loggedIn
+        })
     })
     .catch(err => {
         console.log(err);
