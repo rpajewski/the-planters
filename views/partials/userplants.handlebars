@@ -1,0 +1,11 @@
+<div class="card suggested-plants">
+    <div class="card-header">
+        <h1 class="card-title plant-title">{{plant.common_name}}</h1>
+    </div>
+    <div class="card-body">
+        <a href="/dashboard/more-info/{{plant.id}}">
+          <img class="card-img" src="{{plant.image_url}}" alt="{{plant.scientific_name}}">
+        </a>
+        <button type="button" class="btn" onclick="deletePlantDashboard({{id}})">Remove This Plant</button>
+    </div>
+</div>

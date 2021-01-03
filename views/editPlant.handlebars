@@ -1,0 +1,54 @@
+{{!-- provide information on plant and allow user to change plant room --}}
+
+<div class="post card">
+  <div class="card-header">
+    <h2>Edit Plant</h2>
+  </div>
+
+  <div class="flex-row-1">
+    <div class="card suggested-plants">
+        <div class="card-header">
+            <h1 class="card-title plant-title">{{plant.common_name}}</h1>
+        </div>
+        <div class="card-body">
+            <a href="/plants/{{plant.id}}">
+              <img class="card-img" src="{{plant.image_url}}" alt="{{plant.scientific_name}}">
+            </a>
+        </div>
+    </div>
+
+    {{#if loggedIn}}
+        <div class="card add-plant" id="plantForm">
+            <div class="card-header new-plant-form">
+                  <h2 class="plant-title">Move Plant To New Room</h2>
+            </div>
+            <div class="card-body">
+                  <select id="select">
+                      <option value="default">Choose Room</option>
+                  </select>
+                  <button type="button" class="btn" onclick="addPlantFromInfo({{plant.id}})">Move Plant</button>
+            </div>
+        </div>
+    {{/if}}
+
+    <div class="card">
+      <h4 class="description-title">Scientific Name: </h4><p>{{plant.scientific_name}}</p>
+      <h4 class="description-title">Description: </h4><p>{{plant.description}}</p>
+      <h4 class="description-title">Characteristics: </h4><p>{{plant.filters}}</p>
+    </div>
+  </div>
+
+  <form id="edit-post-form" class="card-body">
+    <input type="hidden" name="post-id" value="{{plant.id}}" />
+
+    <label class="form-label" for="post-title">Watering Reminders</label>
+    <input type="text" name="post-title" value="{{post.title}}" class="form-input" placeholder="Enter the last day you watered this plant..."/>
+
+    <label class="form-label" for="post-body">Care Notes</label>
+    <textarea name="post-body" class="form-input" placeholder="Log any care or treatment notes for your plant...">{{post.body}}</textarea>
+
+    <button type="submit" class="btn">Update</button>
+  </form>
+</div>
+
+<script src="/javascript/edit-plant.js"></script>

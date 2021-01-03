@@ -1,0 +1,90 @@
+<section>
+    {{#if userData.length}}
+    <div>
+        <h2>Your Plants</h2>
+        <div class="flex-row-1">
+            {{#each userData as |plant|}}
+            {{> userplants plant}}
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="flex-row-1">
+        <div class="card" id="plantForm">
+            <div class="card-header">
+                <h2>Add a plant</h2>
+            </div>
+            <div class="card-body">
+                <select id="select">
+                    <option value="default">Choose a Plant</option>
+                </select>
+                <button type="button" class="btn" id="addPlant">Add Plant</button>
+            </div>
+        </div>
+
+        {{#if home_name.length}}
+        <div class="post card" id="roomForm">
+            <div class="card-header">
+                <h2>Add a Room to {{home_name}}</h2>
+            </div>
+            <div id="new-room-form" class="card-body">
+                <input type="text" name="room-name" class="form-input" placeholder="Room Name"/>
+                <button type="submit" class="btn" id="addRoomButton">Add Room</button>
+            </div>
+        </div>
+
+        {{else}}
+        <div class="post card" id="homeForm">
+            <div class="card-header">
+                <h2>Create New Home{{userData.home.id}}</h2>
+            </div>
+            <form id="new-post-form" class="card-body">
+                <input type="text" name="home-name" class="form-input" placeholder="Home Name"/>
+                <button type="submit" class="btn" id="createHomeButton">Create</button>
+            </form>
+        </div>
+        {{/if}}
+    </div>
+
+    {{else}}
+    <div class="post card">
+        <div class="card-header">
+            <h2>Lets Start By Adding A Plant!</h2>
+        </div>
+            <div class="card suggested-plants">
+                <div class="card-header">
+                    <h1 class="card-title plant-title">Example Plant</h1>
+                </div>
+                <div class="card-body">
+                    <a href="/plants/12">
+                        <img class="card-img" src="https://cdn.shopify.com/s/files/1/0059/8835/2052/products/Areca-Palm-2-450w_grande.jpg?v=1599029729" alt="Areca Palm">
+                    </a>
+                </div>
+            </div>
+        
+            <div class="card" id="plantForm">
+                <div class="card-header">
+                    <h2>Add a plant</h2>
+                </div>
+                <div class="card-body">
+                    <select id="select">
+                        <option value="default">Choose a Plant</option>
+                    </select>
+                    <button type="button" class="btn" id="addPlant">Add Plant</button>
+                </div>
+            </div>
+    </div>
+    {{/if}}
+
+</section>
+
+<script src="/javascript/plant-dropdown.js"></script>
+<script src="/javascript/add-plant.js"></script>
+<script src="/javascript/delete-plant.js"></script>
+{{#if home_name.length}}
+<script src="/javascript/add-room.js"></script>
+<script src="/javascript/edit-room.js"></script>
+<script src="/javascript/delete-home.js"></script>
+{{else}}
+<script src="/javascript/add-home.js"></script>
+{{/if}}

@@ -1,0 +1,44 @@
+<div class="post card">
+  <div class="card-header">
+    <h2>Plant Info</h2>
+  </div>
+  <div class="flex-row-1">
+    <div class="card suggested-plants">
+        <div class="card-header">
+            <h1 class="card-title plant-title">{{plant.common_name}}</h1>
+        </div>
+        <div class="card-body">
+            <a href="/plants/{{plant.id}}">
+              <img class="card-img" src="{{plant.image_url}}" alt="{{plant.scientific_name}}">
+            </a>
+        </div>
+    </div>
+
+    {{#if loggedIn}}
+        <div class="card add-plant" id="plantForm">
+            <div class="card-header new-plant-form">
+                  <h2 class="plant-title">Add Plant To Your Home</h2>
+            </div>
+            <div class="card-body">
+                  <select>
+                      <option value="default">Choose Plant</option>
+                      <option value="{{plant.id}}">{{plant.common_name}}</option>
+                  </select>
+                  <button type="button" class="btn" onclick="addPlantFromInfo({{plant.id}})">Add Plant</button>
+            </div>
+        </div>
+    {{/if}}
+
+    <div class="card">
+      <h4 class="description-title">Scientific Name: </h4><p>{{plant.scientific_name}}</p>
+      <h4 class="description-title">Description: </h4><p>{{plant.description}}</p>
+      <h4 class="description-title">Characteristics: </h4><p>{{plant.filters}}</p>
+    </div>
+  </div>
+</div>
+
+
+{{#if loggedIn}}
+<script src="/javascript/add-plant.js"></script>
+{{/if}}
+

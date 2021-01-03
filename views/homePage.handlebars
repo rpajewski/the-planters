@@ -1,0 +1,67 @@
+<section>
+    <div>
+        <h2>Suggested Plants</h2>
+        <div class="flex-row-1">
+            {{#each plants as |plant|}}
+            {{> plants plant}}
+            {{/each}}
+        </div>
+    </div>
+
+    <div>
+        <h2>What The Planters is all about!</h2>
+        <div class="card align-center">
+            <div class="card-header">
+                <h1 class="card-title plant-title">Houseplant Enthusiast</h1>
+            </div>
+            <div class="card-body center">
+                <p>Succulents, fiddle leaf figs, the elusive variegated monstera: Ask proud plant parents about their collections, and they’ll gush with such enthusiasm that you’d think they were talking about actual children.</p>
+            </div>
+            <div class="card-header">
+                <h1 class="card-title plant-title">Find Plants</h1>
+            </div>
+            <div class="card-body center">
+                <p>Use The Planters search feature to find a plant suited to your homes environment. You can also search for plants based on experience level and for plants that are safe for your fur babies!</p>
+            </div>
+            <div class="card-header">
+                <h1 class="card-title plant-title">Add a Home</h1>
+            </div>
+            <div class="card-body center">
+                <p>Users who sign up to The Planters will be greeted with their very own dashboard. You can add a home, add rooms to your home and then add plants to those rooms to create your own virtual ecosystem. Future development will include light levels for each room so we can suggest the best plants for each of your home's rooms.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="post card">
+        <div class="card-header">
+            <div class="new-plant-form">
+                <h2>Search for a plant based on your environment!</h2>
+                <div class="flex-row-1">
+                    <input type="text" class="search-input1" id="userInputName" onkeyup="searchPlantsByName()" placeholder="Search for plants by name...">
+                    <input type="text" class="search-input2" id="userInputFilter" onkeyup="searchPlantsByFilters()" placeholder="Search for plants by characteristics...         (seperate by commas)">
+                </div>
+                <div class="flex-row-1">
+                    <button type="button" id="low-light" class="btn filter-btns" onclick="searchPlantsByButtons('low sunlight')">Low Sunlight</button> 
+                    <button type="button" id="medium-light" class="btn filter-btns" onclick="searchPlantsByButtons('medium sunlight')">Medium Sunlight</button> 
+                    <button type="button" id="direct-light" class="btn filter-btns" onclick="searchPlantsByButtons('direct sunlight')">Direct Sunlight</button> 
+                    <button type="button" id="pet-friendly" class="btn filter-btns" onclick="searchPlantsByButtons('pet friendly')">Pet Friendly</button> 
+                    <button type="button" id="beginners" class="btn filter-btns" onclick="searchPlantsByButtons('beginners')">Beginners</button> 
+                    <button type="button" id="intermediate" class="btn filter-btns" onclick="searchPlantsByButtons('intermediate')">Intermediate</button> 
+                    <button type="button" id="Pros" class="btn filter-btns" onclick="searchPlantsByButtons('pros')">Pros</button>
+                    <button type="button" id="reset" class="btn filter-btns" onclick="resetSearch()">Reset</button> 
+                </div>
+            </div>
+
+            <div>
+                <table id="plantTable">
+                    <tr class="header">
+                        <th style="width:30%;">Common Name</th>
+                        <th style="width:70%;">Characteristics</th>
+                    </tr>
+                </table> 
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="/javascript/find-plant.js"></script>
