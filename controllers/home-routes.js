@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
         }
         const plants = randomPlantsArray.flat(1)
         // console.log(plants)
-        res.render('homePage', {
+        res.render('homepage', {
             plants,
             data,
             loggedIn: req.session.loggedIn
