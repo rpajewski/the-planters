@@ -35,7 +35,6 @@ The application can also be used at the deployed link on [Heroku](https://bloomi
 ## Screenshot
 
 - Homepage 
-<br>
 
 ![](./public/images/homepage.png)
 
